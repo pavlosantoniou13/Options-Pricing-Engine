@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from src.black_scholes import BlackScholesEngine
+from pathlib import Path
 
 def plot_greeks(K=100.0, T=1.0, r=0.05, sigma=0.20):
     spot_range = np.linspace(50, 150, 100)
@@ -31,7 +32,12 @@ def plot_greeks(K=100.0, T=1.0, r=0.05, sigma=0.20):
     axs[1, 1].set_xlabel("Spot Price")
 
     plt.tight_layout()
-    plt.savefig("notebooks/greeks_profile.png")
+
+    # Resolve path relative to visualizer.py's location (src/ -> repo_root -> notebooks/)
+    save_dir = Path(__file__).resolve().parent.parent / "notebooks"
+    save_dir.mkdir(parents=True, exist_ok=True)
+    plt.savefig(save_dir / "greeks_profile.png")
+    
     plt.show()
 
 if __name__ == "__main__":

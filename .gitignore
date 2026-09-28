@@ -1,0 +1,30 @@
+# Jupyter checkpoint caches
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+
+# Python compiled bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+src/__pycache__/
+
+# Package build & egg info
+*.egg-info/
+options_pricing_engine.egg-info/
+dist/
+build/
+
+# Virtual environments (if present)
+venv/
+env/
+.env/
+
+# Pytest cache
+.pytest_cache/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+**/*cpython*.pyc
+src/__pycache__/
