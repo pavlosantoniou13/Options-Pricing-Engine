@@ -32,7 +32,7 @@ class BlackScholesEngine:
         d1, d2 = self._d1_d2()
         if option_type.lower() == "call":
             return self.S * norm.cdf(d1) - self.K * np.exp(-self.r * self.T) *norm.cdf(d2)
-        elif option_type.lower == "put":
+        elif option_type.lower() == "put":
             return self.K * np.exp(-self.r * self.T) * norm.cdf(-d2) - self.S * norm.cdf(-d1)
         raise ValueError("Option_type must be a 'call' or 'put'")
 
