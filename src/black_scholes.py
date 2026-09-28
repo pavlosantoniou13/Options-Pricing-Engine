@@ -52,7 +52,7 @@ class BlackScholesEngine:
         Measures the curvature / acceleration which is identical for both calls and puts.
         '''
         d1, _ = self._d1_d2()
-        return norm.cdf(d1) / (self.S * self.sigma * np.sqrt(self.T))
+        return norm.pdf(d1) / (self.S * self.sigma * np.sqrt(self.T))
 
     def vega(self) -> float:
         '''
