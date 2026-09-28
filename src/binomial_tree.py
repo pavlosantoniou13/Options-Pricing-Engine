@@ -30,8 +30,8 @@ class BinomialTreeEngine:
 
         # Calculate all possible stock prices at final expiration step N
         # Node j corresponds to j 'up' moves and (N - j) 'down' moves
-        j = np.arrange(self.N + 1)
-        S_T = self.s * (u ** j) * (d ** (self.N - j))
+        j = np.arange(self.N + 1)
+        S_T = self.S * (u ** j) * (d ** (self.N - j))
 
         # Intrinsic option payoff at expiration: max(S - K, 0) for call, max(K - S, 0) for put
         is_call = option_type.lower() == "call"
@@ -43,7 +43,7 @@ class BinomialTreeEngine:
             values = discount * (p * values[1:] + (1.0 -p) * values[:-1])
             # Check for optimal early exercise (American options only)s
             if is_american:
-                j_i = np.arrange(i + 1)
+                j_i = np.arange(i + 1)
                 S_node = self.S * (u ** j_i) * (d ** (i - j_i))
                 early_exercise = np.maximum(S_node - self.K, 0.0) if is_call else np.maximum(self.K - S_node, 0.0)
                 # Option value is the maximum of holding vs exercising immediately
